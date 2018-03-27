@@ -12,10 +12,11 @@ Programmer/Developer:	Christian Marcell de Oliveira.
 Email               :	chroda@chroda.com.br
 Twitter             :	@_chroda
 Location            :	Balneario Camboriu, SC, Brazil.
+Location            :	Porto Alegre, RS, Brazil.
 
 /* SITE */
 
-Last update         : 2014/02/11.
+Last update         : 2018/03/27.
 Standards           : XHTML, CSS2, CSS3.
 Components          : jQuery.
 Softwares           : Atom.
