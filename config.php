@@ -72,6 +72,18 @@ switch(__DNS__):
 	/**
 	* Development.
 	*/
+	case 'lolcollector-legacy.herokuapp.com/':
+	define('MYSQL_HOST','');
+	define('MYSQL_USER','');
+	define('MYSQL_PASS','');
+	define('MYSQL_NAME','');
+	define( '__ENV__', 'stage' );
+	define( '__PATH__', '/' );
+	break;
+
+	/**
+	* Development.
+	*/
 	case 'localhost':default:
 	define('MYSQL_HOST','localhost');
 	define('MYSQL_USER','root');
