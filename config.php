@@ -86,9 +86,9 @@ define('CDN_DIR',__PATH__ .'cdn/');
 define('DATA_DIR',__PATH__ .'data/');
 define('PKG_DIR','http://'.__IP__.'/pkg/');
 
-$usersJson = json_decode(file_get_contents('db.json'));
+$usersJson = json_decode(file_get_contents('db_users.json'));
 // $championsRiot = json_decode(file_get_contents('https://br1.api.riotgames.com/lol/static-data/v3/champions?locale=pt_BR&tags=skins&dataById=false&api_key='.__APP_RIOTAPI_KEY__));
-$championsRiot = json_decode(file_get_contents('champions.json'));
+$championsRiot = json_decode(file_get_contents('db_champions.json'));
 
 $db = new StdClass;
 $db->users = [];
