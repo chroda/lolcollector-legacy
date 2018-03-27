@@ -17,16 +17,15 @@
 */
 
 class RiotAPI{
-  //const API_URL					='http://prod.api.pvp.net/api/lol/';
-  //const API_URL_STATIC			='http://prod.api.pvp.net/api/lol/static-data/';
-  const API_URL					='.api.pvp.net/api/lol/';
-  const API_URL_STATIC			='.api.pvp.net/api/lol/static-data/';
-  const API_KEY_PRIMARY			=__APP_RIOTAPI_KEY__;
-  const API_KEY_SECONDARY			=__APP_RIOTAPI_KEY_S__;
-  const RATE_LIMIT_MINUTES 		=500;
-  const RATE_LIMIT_SECONDS 		=10;
-  const CACHE_ENABLED 			=false;
-  const CACHE_LIFETIME_MINUTES 	=60;
+  //const API_URL = 'http://prod.api.pvp.net/api/lol/';
+  //const API_URL_STATIC = 'http://prod.api.pvp.net/api/lol/static-data/';
+  const API_URL = '.api.pvp.net/api/lol/';
+  const API_URL_STATIC ='.api.pvp.net/api/lol/static-data/';
+  const API_KEY_PRIMARY = __APP_RIOTAPI_KEY__;
+  const RATE_LIMIT_MINUTES = 500;
+  const RATE_LIMIT_SECONDS = 10;
+  const CACHE_ENABLED = false;
+  const CACHE_LIFETIME_MINUTES = 60;
   private $region;
 
   public function __construct($region='br'){
@@ -35,13 +34,13 @@ class RiotAPI{
 
   private function getVersion($type){
     switch($type){
-      case 'champion'			:$v='1.2';break;
-      case 'game'				:$v='1.3';break;
-      case 'league'			:$v='2.3';break;
-      case 'lol-static-data'	:$v='1.2';break;
-      case 'stats'			:$v='1.3';break;
-      case 'summoner'			:$v='1.4';break;
-      case 'team'				:$v='2.2';break;
+      case 'champion': $v='1.2';break;
+      case 'game': $v='1.3';break;
+      case 'league': $v='2.3';break;
+      case 'lol-static-data': $v='1.2';break;
+      case 'stats': $v='1.3';break;
+      case 'summoner': $v='1.4';break;
+      case 'team': $v='2.2';break;
     }
     return 'v'.$v;
   }
@@ -54,14 +53,13 @@ class RiotAPI{
   * @TODO //probably should put rate limiting stuff here
   */
   private function request($call,$version,$apiUrl=self::API_URL,$apiKey=self::API_KEY_PRIMARY){
-    //probably should put rate limiting stuff here
-    $url 				= $this->format_url($call,$version,$apiUrl,$apiKey);
+    $url = $this->format_url($call,$version,$apiUrl,$apiKey);
 
     if(self::CACHE_ENABLED){
-      $cacheFile 		= __ROOT__.'cache/'.md5($url);
+      $cacheFile = __ROOT__.'cache/'.md5($url);
       if(file_exists($cacheFile)) {
-        $fh 		=fopen($cacheFile,'r');
-        $cacheTime 	=trim(fgets($fh));
+        $fh = fopen($cacheFile,'r');
+        $cacheTime = trim(fgets($fh));
         if($cacheTime > strtotime('-'. self::CACHE_LIFETIME_MINUTES.' minutes')){return fread($fh,filesize($cacheFile));}
         fclose($fh);unlink($cacheFile);
       }

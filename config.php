@@ -14,7 +14,6 @@ define( '__APP_VERSION__'				,'0.1');
 define( '__APP_EMAIL__'					,'chroda@chroda.com.br');
 define( '__APP_ADSENCE__'				,'ca-pub-9598578551181463');
 define( '__APP_RIOTAPI_KEY__'		,trim(file_get_contents('https://raw.githubusercontent.com/chroda/lolcollector/master/apikey.txt')));
-define( '__APP_RIOTAPI_KEY_S__'	,'602c4a60-4d56-44c3-b85e-97837d4685f3');
 define( '__DEBUG__'							,true);
 define( '__DNS__'								,$_SERVER['SERVER_NAME']);
 define( '__IP__'								,@$_SERVER['SERVER_ADDR']);
@@ -79,7 +78,7 @@ case 'localhost':default:
 	define('MYSQL_PASS','');
 	define('MYSQL_NAME','lolcollector');
 	define( '__ENV__', 'dev' );
-	define( '__PATH__', '/' );
+	define( '__PATH__', '/lolcollector-legacy/' );
 	break;
 endswitch;
 
@@ -87,9 +86,9 @@ define('CDN_DIR',__PATH__ .'cdn/');
 define('DATA_DIR',__PATH__ .'data/');
 define('PKG_DIR','http://'.__IP__.'/pkg/');
 
-// $usersJson = json_decode(file_get_contents('https://raw.githubusercontent.com/chroda/lolcollector/master/development/legacy/db.json'));
 $usersJson = json_decode(file_get_contents('db.json'));
-$championsRiot = json_decode(file_get_contents('https://br1.api.riotgames.com/lol/static-data/v3/champions?locale=pt_BR&tags=skins&dataById=false&api_key='.__APP_RIOTAPI_KEY__));
+// $championsRiot = json_decode(file_get_contents('https://br1.api.riotgames.com/lol/static-data/v3/champions?locale=pt_BR&tags=skins&dataById=false&api_key='.__APP_RIOTAPI_KEY__));
+$championsRiot = json_decode(file_get_contents('champions.json'));
 
 $db = new StdClass;
 $db->users = [];
@@ -100,10 +99,11 @@ foreach ($usersJson->users as $id => $dbUser){
 	$db->users[$dbUser->id] = $dbUser;
 }
 ksort($db->users);
+
 foreach ($championsRiot->data as $id => $dbChampions){
 	$db->champions[$dbChampions->name] = $dbChampions;
 }
 ksort($db->champions);
 
 session_start();
-pr(__APP_RIOTAPI_KEY__);die;
+// pr(__APP_RIOTAPI_KEY__);die;
