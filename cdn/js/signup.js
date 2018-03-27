@@ -161,6 +161,7 @@
       },
       dataType:"json"
     }).done(function(data){
+      console.log(data);
       if(data.signup.validate.success){window.location.href=$.App.url+data.signup.validate.success;}
     }).fail(function(){/*alert("error");*/}).always(function(){/*alert("complete");*/});
   });

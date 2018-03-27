@@ -76,7 +76,7 @@
 		<!-- <script type="text/javascript"	src="<?php echo CDN_DIR; ?>js/jquery-ui.min.js"					></script> -->
 		<script type="text/javascript"	src="<?php echo CDN_DIR; ?>js/bootstrap.min.js"						></script>
 		<script type="text/javascript"	src="<?php echo CDN_DIR; ?>js/maskedinput.js"						></script>
-		<script type="text/javascript"  src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script>
+		<!-- <script type="text/javascript"  src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script> -->
 		<script type='text/javascript'>
 			jQuery.App={
 		    url:			'<?php location(false,false,false);?>',

@@ -21,23 +21,24 @@ function topChampionShuffle($indexArray=1,$jsDump=false){
 		return $_SESSION['graphics'][$indexArray];
 	}else{
 		unset($_SESSION['graphics']);
-		topChampionShuffle(2);	
+		topChampionShuffle(2);
 	}
 }
 
 function adsence($adslot,$responsive=false,$height=200,$width=200){
+	return false;
 	$display		= 'inline-block';
 	$fomart 		= null;
 	if($responsive == true){
 		$display 	= 'block';
 		$fomart 	= 'data-ad-format="auto"';
 	}
-	return '<ins	class="adsbygoogle" 
+	return '<ins	class="adsbygoogle"
 					style="	display	:'.$display.';
 							width	:'.$width.'px;
-							height	:'.$height.'px;" 
-					data-ad-client	="'.__APP_ADSENCE__.'" 
-					data-ad-slot	="'.$adslot.'" 
+							height	:'.$height.'px;"
+					data-ad-client	="'.__APP_ADSENCE__.'"
+					data-ad-slot	="'.$adslot.'"
 					'.$fomart.'>
 			</ins><script>( adsbygoogle = window.adsbygoogle || []).push({});</script>';
 }

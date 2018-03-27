@@ -1,18 +1,18 @@
 <?php
 /**
- * @AUTHOR		Christian Marcell de Oliveira (chroda) <chroda@chroda.com.br>
- * @COPYRIGHT	Dev n' Quest 2014
- * @PACKAGE		DnQ LolC
- * @SINCE		July 2013
- * @VERSION		0.1
- *
- * Setup you project in 'Production' and 'Development' enviroments.
- */
+* @AUTHOR		Christian Marcell de Oliveira (chroda) <chroda@chroda.com.br>
+* @COPYRIGHT	Dev n' Quest 2014
+* @PACKAGE		DnQ LolC
+* @SINCE		July 2013
+* @VERSION		0.1
+*
+* Setup you project in 'Production' and 'Development' enviroments.
+*/
 define( '__APP_PACKAGE__'				,'CHRODA');
 define( '__APP_TITLE__'					,'LoL Collector');
 define( '__APP_VERSION__'				,'0.1');
 define( '__APP_EMAIL__'					,'chroda@chroda.com.br');
-define( '__APP_ADSENCE__'				,'ca-pub-9598578551181463');
+// define( '__APP_ADSENCE__'				,'ca-pub-9598578551181463');
 define( '__APP_RIOTAPI_KEY__'		,trim(file_get_contents('https://raw.githubusercontent.com/chroda/lolcollector/master/apikey.txt')));
 define( '__DEBUG__'							,true);
 define( '__DNS__'								,$_SERVER['SERVER_NAME']);
@@ -53,14 +53,14 @@ ini_set('session.cookie_lifetime',__SESSION_TIMEOUT__);
 ini_set('session.use_trans_sid',true);
 
 switch(__DNS__):
-/**
- * Production.
- */
-case 		 'lolcollector.com':
-case 'www.lolcollector.com':
-case 		 'lolcollector.com.br':
-case 'www.lolcollector.com.br':
-case 'lolcollector.chroda.com.br':
+	/**
+	* Production.
+	*/
+	case 		 'lolcollector.com':
+	case 'www.lolcollector.com':
+	case 		 'lolcollector.com.br':
+	case 'www.lolcollector.com.br':
+	case 'lolcollector.chroda.com.br':
 	define('MYSQL_HOST','mysql.hostinger.com.br');
 	define('MYSQL_USER','u608690273');
 	define('MYSQL_PASS','3w4369czm7Ef');
@@ -69,10 +69,10 @@ case 'lolcollector.chroda.com.br':
 	define( '__PATH__', '/legacy/' );
 	break;
 
-/**
- * Development.
- */
-case 'localhost':default:
+	/**
+	* Development.
+	*/
+	case 'localhost':default:
 	define('MYSQL_HOST','localhost');
 	define('MYSQL_USER','root');
 	define('MYSQL_PASS','');
@@ -94,10 +94,12 @@ $db->users = [];
 $db->champions = [];
 
 // users
-foreach ($usersJson as $id => $dbUser){
-	$db->users[$dbUser->id] = $dbUser;
+if(!empty($usersJson)){
+	foreach ($usersJson as $id => $dbUser){
+		$db->users[$dbUser->id] = $dbUser;
+	}
+	ksort($db->users);
 }
-ksort($db->users);
 
 foreach ($championsJson->data as $id => $dbChampions){
 	$db->champions[$dbChampions->name] = $dbChampions;
