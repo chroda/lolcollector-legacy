@@ -6,8 +6,8 @@
       "username" : "chroda",
       "password": "chroda",
       "sex": 1,
-      "champions": 132,
-      "champions_skins": 159,
+      "champions": [2],
+      "champions_skins": [159],
       "server":"br",
       "serverFullname" : "Brasil"
     }

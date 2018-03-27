@@ -67,8 +67,8 @@ final class User{
 
 	public function removeAllChampion(){
 		if(!empty($_SESSION['user']['authenticated']['id'])){
-			$usersJson = json_decode(file_get_contents('db.json'));
-			foreach ($usersJson->users as $dbUser){
+			global $db;
+			foreach ($db->users as $dbUser){
 				if($dbUser->id == $_SESSION['user']['authenticated']['id']){
 					$dbUser->champions = [];
 					file_put_contents('db.json',json_encode($usersJson));
@@ -82,8 +82,8 @@ final class User{
 
 	public function addChampion($id){
 		if(!empty($_SESSION['user']['authenticated']['id'])){
-			$usersJson = json_decode(file_get_contents('db.json'));
-			foreach ($usersJson->users as $dbUser){
+			global $db;
+			foreach ($db->users as $dbUser){
 				if($dbUser->id == $_SESSION['user']['authenticated']['id']){
 					if(!in_array($id,$dbUser->champions)){
 						array_push($dbUser->champions,(int) $id);
@@ -102,8 +102,8 @@ final class User{
 
 	public function removeChampion($id){
 		if(!empty($_SESSION['user']['authenticated']['id'])){
-			$usersJson = json_decode(file_get_contents('db.json'));
-			foreach ($usersJson->users as $dbUser){
+			global $db;
+			foreach ($db->users as $dbUser){
 				if($dbUser->id == $_SESSION['user']['authenticated']['id']){
 					if(in_array($id,$dbUser->champions)){
 						unset($dbUser->champions[array_search((int)$id,$dbUser->champions)]);
@@ -121,8 +121,8 @@ final class User{
 
 	public function addChampionSkin($id){
 		if(!empty($_SESSION['user']['authenticated']['id'])){
-			$usersJson = json_decode(file_get_contents('db.json'));
-			foreach ($usersJson->users as $dbUser){
+			global $db;
+			foreach ($db->users as $dbUser){
 				if($dbUser->id == $_SESSION['user']['authenticated']['id']){
 					if(!in_array($id,$dbUser->champions_skins)){
 						array_push($dbUser->champions_skins,(int) $id);
@@ -141,8 +141,8 @@ final class User{
 
 	public function removeChampionSkin($id){
 		if(!empty($_SESSION['user']['authenticated']['id'])){
-			$usersJson = json_decode(file_get_contents('db.json'));
-			foreach ($usersJson->users as $dbUser){
+			global $db;
+			foreach ($db->users as $dbUser){
 				if($dbUser->id == $_SESSION['user']['authenticated']['id']){
 					if(in_array($id,$dbUser->champions_skins)){
 						unset($dbUser->champions_skins[array_search((int)$id,$dbUser->champions_skins)]);
@@ -159,8 +159,8 @@ final class User{
 
 	public function removeAllChampionSkin(){
 		if(!empty($_SESSION['user']['authenticated']['id'])){
-			$usersJson = json_decode(file_get_contents('db.json'));
-			foreach ($usersJson->users as $dbUser){
+			global $db;
+			foreach ($db->users as $dbUser){
 				if($dbUser->id == $_SESSION['user']['authenticated']['id']){
 					$dbUser->champions_skins = [];
 					file_put_contents('db.json',json_encode($usersJson));
@@ -174,8 +174,8 @@ final class User{
 
 
 	public function haveChampion($id){
-		$usersJson = json_decode(file_get_contents('db.json'));
-		foreach ($usersJson->users as $dbUser){
+		global $db;
+		foreach ($db->users as $dbUser){
 			if($dbUser->id == $this->getIdByUsername(rewrite(2))){
 				if(in_array($id,$dbUser->champions)){
 					return true;
@@ -186,8 +186,8 @@ final class User{
 	}
 
 	public function haveChampionSkin($id){
-		$usersJson = json_decode(file_get_contents('db.json'));
-		foreach ($usersJson->users as $dbUser){
+		global $db;
+		foreach ($db->users as $dbUser){
 			if($dbUser->id == $this->getIdByUsername(rewrite(2))){
 				if(in_array($id,$dbUser->champions_skins)){
 					return true;
@@ -198,8 +198,8 @@ final class User{
 	}
 
 	static public function getChampions($id){
-		$usersJson = json_decode(file_get_contents('db.json'));
-		foreach ($usersJson->users as $dbUser){
+		global $db;
+		foreach ($db->users as $dbUser){
 			if($dbUser->id == $id){
 				return $dbUser->champions;
 			}
@@ -207,8 +207,8 @@ final class User{
 	}
 
 	static public function getChampionsSkins($id){
-		$usersJson = json_decode(file_get_contents('db.json'));
-		foreach ($usersJson->users as $dbUser){
+		global $db;
+		foreach ($db->users as $dbUser){
 			if($dbUser->id == $id){
 				return $dbUser->champions_skins;
 			}
