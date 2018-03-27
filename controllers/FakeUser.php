@@ -7,7 +7,7 @@ final class User{
 		$this->db = new stdClass;
 		$this->db->users = $db->users;
 		if(is_numeric($id)){
-			$this->db->users[$id];
+			@$this->db->users[$id];
 		}
 	}
 
@@ -37,7 +37,7 @@ final class User{
 	public function getName($onlyFirst=false,$giveId=false){
 		if($this->isLoggedIn()){
 			$id = is_numeric($giveId) ? $giveId : $_SESSION['user']['authenticated']['id'];
-			$name = $this->db->users[$id]->name;
+			$name = @$this->db->users[$id]->name;
 			if($onlyFirst){
 				$name = explode(' ', $name);
 				$name = $name[0];
@@ -49,7 +49,7 @@ final class User{
 
 	public function getUsername($giveId=false){
 		$id = is_numeric($giveId) ? $giveId : $_SESSION['user']['authenticated']['id'];
-		return $this->db->users[$id]->username;
+		return @$this->db->users[$id]->username;
 	}
 
 	public function getIdByUsername($username){
