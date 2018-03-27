@@ -87,20 +87,19 @@ define('DATA_DIR',__PATH__ .'data/');
 define('PKG_DIR','http://'.__IP__.'/pkg/');
 
 $usersJson = json_decode(file_get_contents('db_users.json'));
-// $championsRiot = json_decode(file_get_contents('https://br1.api.riotgames.com/lol/static-data/v3/champions?locale=pt_BR&tags=skins&dataById=false&api_key='.__APP_RIOTAPI_KEY__));
-$championsRiot = json_decode(file_get_contents('db_champions.json'));
+$championsJson = json_decode(file_get_contents('db_champions.json'));
 
 $db = new StdClass;
 $db->users = [];
 $db->champions = [];
 
 // users
-foreach ($usersJson->users as $id => $dbUser){
+foreach ($usersJson as $id => $dbUser){
 	$db->users[$dbUser->id] = $dbUser;
 }
 ksort($db->users);
 
-foreach ($championsRiot->data as $id => $dbChampions){
+foreach ($championsJson->data as $id => $dbChampions){
 	$db->champions[$dbChampions->name] = $dbChampions;
 }
 ksort($db->champions);

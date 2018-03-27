@@ -30,6 +30,10 @@ final class User{
 		header('Location:'.location('',1));
 	}
 
+	private function writeJson($jsonPath, $jsonData){
+		file_put_contents($jsonPath,json_encode($jsonData,JSON_PRETTY_PRINT));
+	}
+
 	public function getName($onlyFirst=false,$giveId=false){
 		if($this->isLoggedIn()){
 			$id = is_numeric($giveId) ? $giveId : $_SESSION['user']['authenticated']['id'];
@@ -71,7 +75,7 @@ final class User{
 			foreach ($db->users as $dbUser){
 				if($dbUser->id == $_SESSION['user']['authenticated']['id']){
 					$dbUser->champions = [];
-					file_put_contents('db.json',json_encode($usersJson));
+					file_put_contents('db_users.json',json_encode($db->users));
 				}
 			}
 			return true;
@@ -88,7 +92,7 @@ final class User{
 					if(!in_array($id,$dbUser->champions)){
 						array_push($dbUser->champions,(int) $id);
 						sort($dbUser->champions);
-						file_put_contents('db.json',json_encode($usersJson));
+						$this->writeJson('db_users.json',$db->users);
 						echo 'owned_champion:' . $id . "\n";
 					}else{
 						echo 'already_owned';
@@ -108,7 +112,7 @@ final class User{
 					if(in_array($id,$dbUser->champions)){
 						unset($dbUser->champions[array_search((int)$id,$dbUser->champions)]);
 						sort($dbUser->champions);
-						file_put_contents('db.json',json_encode($usersJson));
+						$this->writeJson('db_users.json',$db->users);
 						echo 'remove owned champion';
 					}
 					die;
@@ -127,7 +131,7 @@ final class User{
 					if(!in_array($id,$dbUser->champions_skins)){
 						array_push($dbUser->champions_skins,(int) $id);
 						sort($dbUser->champions_skins);
-						file_put_contents('db.json',json_encode($usersJson));
+						$this->writeJson('db_users.json',$db->users);
 						echo 'owned_champions_skins:' . $id . "\n";
 					}else{
 						echo 'already_owned';
@@ -147,7 +151,7 @@ final class User{
 					if(in_array($id,$dbUser->champions_skins)){
 						unset($dbUser->champions_skins[array_search((int)$id,$dbUser->champions_skins)]);
 						sort($dbUser->champions_skins);
-						file_put_contents('db.json',json_encode($usersJson));
+						$this->writeJson('db_users.json',$db->users);
 						echo 'remove owned champion skin';
 					}
 				}
@@ -163,7 +167,7 @@ final class User{
 			foreach ($db->users as $dbUser){
 				if($dbUser->id == $_SESSION['user']['authenticated']['id']){
 					$dbUser->champions_skins = [];
-					file_put_contents('db.json',json_encode($usersJson));
+					$this->writeJson('db_users.json',$db->users);
 				}
 			}
 			return true;
