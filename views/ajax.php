@@ -52,15 +52,15 @@ if(isset($_GET['action'])){
         foreach ($db->users as $user) {
           $maxId = $user->id > $maxId ? $user->id: $maxId;
         }
-        // $summoner = json_decode(file_get_contents("https://br1.api.riotgames.com/lol/summoner/v3/summoners/by-name/{$summoner}?api_key=".__APP_RIOTAPI_KEY__));
-        $summoner = (object)[
-          'id' => 1765464,
-          'accountId' => 1697425,
-          'name' => 'chroda',
-          'profileIconId' => 552,
-          'revisionDate' => 1522129054000,
-          'summonerLevel' => 54
-        ];
+        $summoner = json_decode(file_get_contents("https://br1.api.riotgames.com/lol/summoner/v3/summoners/by-name/{$summoner}?api_key=".__APP_RIOTAPI_KEY__));
+        // $summoner = (object)[
+        //   'id' => 1765464,
+        //   'accountId' => 1697425,
+        //   'name' => 'chroda',
+        //   'profileIconId' => 552,
+        //   'revisionDate' => 1522129054000,
+        //   'summonerLevel' => 54
+        // ];
         $dataset = (object)[
           'id' => ++$maxId,
           'riot_id' => $summoner->id,
