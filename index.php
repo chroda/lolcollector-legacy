@@ -1,4 +1,6 @@
 <?php
+
+echo 'ok';die;
 // Setting up and database connecting.
 require_once './config.php';
 
