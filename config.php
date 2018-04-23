@@ -51,11 +51,10 @@ setlocale(LC_ALL, __LOCALE__ . ".UTF-8");
 ini_set('session.name',__SESSION_NAME__);
 ini_set('session.cookie_lifetime',__SESSION_TIMEOUT__);
 ini_set('session.use_trans_sid',true);
-die(phpinfo());
 
 switch(__DNS__):
 	/**
-	* Production.
+   * Production.
 	*/
 	case  'lolcollector.com':
 	case 'www.lolcollector.com':
@@ -71,9 +70,9 @@ switch(__DNS__):
 	break;
 	
 	/**
-	* Development.
-	*/
-	case 'lolcollector-legacy.herokuapp.com/':
+   * Development.
+   */
+  case 'lolcollector-legacy.herokuapp.com/':
 	define('MYSQL_HOST','');
 	define('MYSQL_USER','');
 	define('MYSQL_PASS','');
@@ -83,7 +82,7 @@ switch(__DNS__):
 	break;
 	
 	/**
-	* Development.
+   * Development.
 	*/
 	case 'localhost':default:
 	define('MYSQL_HOST','localhost');
@@ -101,6 +100,7 @@ define('PKG_DIR','http://'.__IP__.'/pkg/');
 
 $usersJson = json_decode(file_get_contents('db_users.json'));
 $championsJson = json_decode(file_get_contents('db_champions.json'));
+die(phpinfo());
 
 $db = new StdClass;
 $db->users = [];
@@ -108,14 +108,14 @@ $db->champions = [];
 
 // users
 if(!empty($usersJson)){
-	foreach ($usersJson as $id => $dbUser){
-		$db->users[$dbUser->id] = $dbUser;
+  foreach ($usersJson as $id => $dbUser){
+    $db->users[$dbUser->id] = $dbUser;
 	}
 	ksort($db->users);
 }
 
 foreach ($championsJson->data as $id => $dbChampions){
-	$db->champions[$dbChampions->name] = $dbChampions;
+  $db->champions[$dbChampions->name] = $dbChampions;
 }
 ksort($db->champions);
 
