@@ -45,13 +45,13 @@ date_default_timezone_set( __TIMEZONE_LOCAL__ );
 date_default_timezone_set( __TIMEZONE_TIME__ );
 // mb_internal_encoding( "UTF-8" );
 require_once __LIB_DIR__.'functions.php';
-die(phpinfo());
 if(file_exists($appFunctions = __LIB_DIR__.'functions.'.trim(strtolower(str_replace(' ','',__APP_TITLE__))).'.php')){require_once $appFunctions;}
 ini_set("display_errors",__DEBUG__);
 setlocale(LC_ALL, __LOCALE__ . ".UTF-8");
 ini_set('session.name',__SESSION_NAME__);
 ini_set('session.cookie_lifetime',__SESSION_TIMEOUT__);
 ini_set('session.use_trans_sid',true);
+die(phpinfo());
 
 switch(__DNS__):
 	/**
