@@ -41,10 +41,10 @@ header( 'X-Powered-By: '.__APP_PACKAGE__.'/'.__APP_VERSION__ );
 header( 'X-Server-Name: '. __DNS__);
 header( 'X-Developer: Christian Marcell (chroda) <chroda@chroda.com.br>');
 
+die(phpinfo());
 date_default_timezone_set( __TIMEZONE_LOCAL__ );
 date_default_timezone_set( __TIMEZONE_TIME__ );
 mb_internal_encoding( "UTF-8" );
-die(phpinfo());
 require_once __LIB_DIR__.'functions.php';
 if(file_exists($appFunctions = __LIB_DIR__.'functions.'.trim(strtolower(str_replace(' ','',__APP_TITLE__))).'.php')){require_once $appFunctions;}
 ini_set("display_errors",__DEBUG__);
