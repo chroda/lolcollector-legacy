@@ -73,7 +73,7 @@ switch(__DNS__):
 	/**
 	* Development.
 	*/
-	case 'lolcollector-legacy.herokuapp.com/':
+	case 'lolcollector-legacy.herokuapp.com':
 	define('MYSQL_HOST','');
 	define('MYSQL_USER','');
 	define('MYSQL_PASS','');
