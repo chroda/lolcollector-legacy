@@ -100,7 +100,7 @@ define('PKG_DIR','http://'.__IP__.'/pkg/');
 
 $usersJson = json_decode(file_get_contents('db_users.json'));
 $championsJson = json_decode(file_get_contents('db_champions.json'));
-die(phpinfo());
+// die(phpinfo());
 
 $db = new StdClass;
 $db->users = [];
