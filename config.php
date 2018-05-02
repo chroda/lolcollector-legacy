@@ -13,7 +13,7 @@ define( '__APP_TITLE__','LoL Collector');
 define( '__APP_VERSION__','0.1');
 define( '__APP_EMAIL__','chroda@chroda.com.br');
 // define( '__APP_ADSENCE__','ca-pub-9598578551181463');
-// define( '__APP_RIOTAPI_KEY__',trim(file_get_contents('https://raw.githubusercontent.com/chroda/lolcollector/master/apikey.txt')));
+define( '__APP_RIOTAPI_KEY__',trim(file_get_contents('https://raw.githubusercontent.com/chroda/lolcollector/master/apikey.txt')));
 define( '__DEBUG__', true);
 define( '__DNS__', $_SERVER['SERVER_NAME']);
 define( '__IP__', @$_SERVER['SERVER_ADDR']);
@@ -43,7 +43,7 @@ header( 'X-Developer: Christian Marcell (chroda) <chroda@chroda.com.br>');
 
 date_default_timezone_set( __TIMEZONE_LOCAL__ );
 date_default_timezone_set( __TIMEZONE_TIME__ );
-mb_internal_encoding( "UTF-8" );
+// mb_internal_encoding( "UTF-8" );
 require_once __LIB_DIR__.'functions.php';
 if(file_exists($appFunctions = __LIB_DIR__.'functions.'.trim(strtolower(str_replace(' ','',__APP_TITLE__))).'.php')){require_once $appFunctions;}
 ini_set("display_errors",__DEBUG__);
