@@ -3,7 +3,8 @@
 				</div>
 			</div>
 			<div id="column">
-				<div class="panel panel-default">
+
+				<!-- <div class="panel panel-default">
 					<div class="panel-heading"><h6 class="panel-title text-center"><small>FACEBOOK</small></h6></div>
 					<div class="panel-body">
 						<div class="fb-like-box" data-href="https://www.facebook.com/lolcollector" data-width="200" data-height="400" data-colorscheme="dark" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false"></div>
@@ -11,34 +12,33 @@
 					<div class="panel-footer"><h6 class="panel-title text-center"><small>FACEBOOK</small></h6></div>
 				</div>
 				<br />
-				<!--  - - >
 				<div class="panel panel-default">
 					<div class="panel-heading"><h6 class="panel-title text-center"><small>PARCEIROS</small></h6></div>
 					<div class="panel-body">
 						<a href="https://www.facebook.com/messages/459397237525644" target="_blank">
-							<img src="<?php echo CDN_DIR;?>img/partner.png" />
+							<img src="< ?php echo CDN_DIR;?>img/partner.png" />
 						</a>
 						<hr />
 						<a href="https://www.facebook.com/NyankoShop" target="_blank">
-							<img src="<?php echo DATA_DIR;?>partners/nyanko.jpg" />
+							<img src="< ?php echo DATA_DIR;?>partners/nyanko.jpg" />
 						</a>
 					</div>
 					<div class="panel-footer"><h6 class="panel-title text-center"><small>PARCEIROS</small></h6></div>
 				</div>
 				<br />
-				<!--  -->
 				<div class="panel panel-default">
 					<div class="panel-heading"><h6 class="panel-title text-center"><small>PUBLICIDADE</small></h6></div>
 					<div class="panel-body">
-						<?php rewrite(1)!=='' ? $resp = true : $resp = false; ?>
-						<?php echo adsence('5120030489',$resp);?>
-						<?php echo adsence('2026963288',$resp);?>
-						<?php echo adsence('4561627281',$resp);?>
-						<?php //echo adsence('2026963288',$resp);?>
-						<?php //echo adsence('6177961287',$resp);?>
+						< ?php rewrite(1)!=='' ? $resp = true : $resp = false; ?>
+						< ?php echo adsence('5120030489',$resp);?>
+						< ?php echo adsence('2026963288',$resp);?>
+						< ?php echo adsence('4561627281',$resp);?>
+						< ?php //echo adsence('2026963288',$resp);?>
+						< ?php //echo adsence('6177961287',$resp);?>
 					</div>
 					<div class="panel-footer"><h6 class="panel-title text-center"><small>PUBLICIDADE</small></h6></div>
-				</div>
+        </div>
+        -->
 			</div>
 		</div>
 		<footer class="navbar navbar-inverse" role="navigation">
@@ -48,7 +48,7 @@
 					|
 					<?php echo $_SESSION['seo']['copyright'];?>
 					|
-					Desenvolvido por <a href="https://chroda.com.br" target="_blank">chroda</a>
+					Desenvolvido por <a href="http://chroda.com.br" target="_blank">chroda</a>
 				</p>
 			</div>
 			<div class="col-lg-1">
