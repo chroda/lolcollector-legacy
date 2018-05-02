@@ -52,6 +52,7 @@ ini_set('session.name',__SESSION_NAME__);
 ini_set('session.cookie_lifetime',__SESSION_TIMEOUT__);
 ini_set('session.use_trans_sid',true);
 
+pr(__DNS__);
 switch(__DNS__):
 	/**
 	* Production.
@@ -90,7 +91,8 @@ switch(__DNS__):
 	define('MYSQL_PASS','');
 	define('MYSQL_NAME','lolcollector');
 	define( '__ENV__', 'dev' );
-	define( '__PATH__', '/lolcollector-legacy/' );
+	// define( '__PATH__', '/lolcollector-legacy/' );
+	define( '__PATH__', '/.chroda/lolcollector-legacy/' );
 	break;
 endswitch;
 

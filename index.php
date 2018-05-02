@@ -3,13 +3,12 @@
 // Setting up and database connecting.
 require_once './config.php';
 
-// die(phpinfo());
-
 $_dir = '';
 $_response = Array();
 
 // Initializer.
 require_once __ROOT__.'init.php';
+// die(phpinfo());
 
 // Verifying the existence of the page.
 if(rewrite(1) == 'user'):
