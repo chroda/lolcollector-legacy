@@ -2,7 +2,8 @@
 
 // Setting up and database connecting.
 require_once './config.php';
-echo 'opa';die;
+
+// die(phpinfo());
 
 $_dir = '';
 $_response = Array();
