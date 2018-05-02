@@ -1,5 +1,6 @@
 body{
-	background-image: url('../img/pattern-bg.jpg');
+  background-image: url('../img/pattern-bg.jpg');
+  background-color: #333;
 }
 
 header #nav-random-champions {
@@ -69,7 +70,7 @@ div#wrapper div#column{
 div#wrapper div#content{
 	width:975px;
 	float:left;
-	
+
 }
 div#wrapper div#column{
 	width:202px;
@@ -82,7 +83,7 @@ div#wrapper div#column div.panel-body{
 	padding:0;
 	margin:0;
 }
-	
+
 footer{
 	margin-top:20px;
 	margin-bottom:0px !important;
