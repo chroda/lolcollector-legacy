@@ -43,7 +43,7 @@ header( 'X-Developer: Christian Marcell (chroda) <chroda@chroda.com.br>');
 
 date_default_timezone_set( __TIMEZONE_LOCAL__ );
 date_default_timezone_set( __TIMEZONE_TIME__ );
-// mb_internal_encoding( "UTF-8" );
+mb_internal_encoding( "UTF-8" );
 require_once __LIB_DIR__.'functions.php';
 if(file_exists($appFunctions = __LIB_DIR__.'functions.'.trim(strtolower(str_replace(' ','',__APP_TITLE__))).'.php')){require_once $appFunctions;}
 ini_set("display_errors",__DEBUG__);
@@ -100,7 +100,6 @@ define('PKG_DIR','http://'.__IP__.'/pkg/');
 
 $usersJson = json_decode(file_get_contents('db_users.json'));
 $championsJson = json_decode(file_get_contents('db_champions.json'));
-// die(phpinfo());
 
 $db = new StdClass;
 $db->users = [];
@@ -120,4 +119,3 @@ foreach ($championsJson->data as $id => $dbChampions){
 ksort($db->champions);
 
 session_start();
-// pr(__APP_RIOTAPI_KEY__);die;
