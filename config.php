@@ -52,7 +52,6 @@ ini_set('session.name',__SESSION_NAME__);
 ini_set('session.cookie_lifetime',__SESSION_TIMEOUT__);
 ini_set('session.use_trans_sid',true);
 
-pr(__DNS__);
 switch(__DNS__):
 	/**
 	* Production.
@@ -78,7 +77,7 @@ switch(__DNS__):
 	define('MYSQL_USER','');
 	define('MYSQL_PASS','');
 	define('MYSQL_NAME','');
-	define( '__ENV__', 'stage' );
+	define( '__ENV__', 'dev' );
 	define( '__PATH__', '/' );
 	break;
 
