@@ -23,9 +23,9 @@ require_once __CONTROLLERS_DIR__.'Mobile_Detect.php';
 $detect = new Mobile_Detect;
 $_SESSION['user']['platform']='desktop';
 if($detect->isTablet())
-  $_SESSION['user']['platform']='tablet';
+$_SESSION['user']['platform']='tablet';
 if($detect->isMobile())
-  $_SESSION['user']['platform']='mobile';
+$_SESSION['user']['platform']='mobile';
 
 /**
 * Starting SEO.
@@ -46,21 +46,22 @@ $_SESSION['seo'] = Array(
 */
 $_SESSION['social'] = Array(
   'facebook' => 'https://www.facebook.com/lolcollector',
-  'twitter' => 'https://twitter.com/LoLColector',
+  'twitter' => 'https://twitter.com/lolcolector',
 );
 
 /**
 * Registration of pages.
 */
-$_SESSION['pages'] = Array(
-  'user' => array(null,
+$_SESSION['pages'] = [
+  'user' => [
+    null,
     'signup',
     'profile',
-  ),
+  ],
   'index','home',
   'login-failed',
   'list-summoners',
-);
+];
 
 /**
 * Authentication of user
@@ -111,24 +112,24 @@ switch (rewrite(1)){
   case '':
   case 'index':
   case 'home':
-    $seo_title = 'Início' ;
-    break;
+  $seo_title = 'Início' ;
+  break;
   case 'user':
-    $seo_title = 'Perfil' ;
-    $seo_description = 'Perfil do invocador' ;
-    break;
+  $seo_title = 'Perfil' ;
+  $seo_description = 'Perfil do invocador' ;
+  break;
   case 'list-summoners':
-    $seo_title = 'Lista de Invocadores' ;
-    $seo_description = 'Lista de Invocadores' ;
-    break;
+  $seo_title = 'Lista de Invocadores' ;
+  $seo_description = 'Lista de Invocadores' ;
+  break;
   case 'login-failed':
-    $seo_title = 'Falha no Login' ;
-    $seo_description = 'Falha ao logar no site';
-    break;
+  $seo_title = 'Falha no Login' ;
+  $seo_description = 'Falha ao logar no site';
+  break;
   default:
-    $seo_title = 'Página não encontrada';
-    $seo_description = $seo_title ;
-    break;
+  $seo_title = 'Página não encontrada';
+  $seo_description = $seo_title ;
+  break;
 }
 
 if(rewrite(2)=='signup'){
