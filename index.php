@@ -1,14 +1,22 @@
 <?php
+/**
+* @AUTHOR Christian Marcell de Oliveira (chroda) <chroda@chroda.com.br>
+* @COPYRIGHT Dev n' Quest 2018
+* @PACKAGE DnQ LolC
+* @SINCE July 2013
+* @VERSION 0.1
+*
+* This file have purpose to serve and set before the file(required by user) be called.
+*/
 
 // Setting up and database connecting.
 require_once './config.php';
 
 $_dir = '';
-$_response = Array();
+$_response = [];
 
 // Initializer.
 require_once __ROOT__.'init.php';
-// die(phpinfo());
 
 // Verifying the existence of the page.
 if(rewrite(1) == 'user'):
