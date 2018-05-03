@@ -1,6 +1,6 @@
 /**
  * @AUTHOR		Christian Marcell de Oliveira (chroda) <chroda@chroda.com.br>
- * @COPYRIGHT	CHRODA 2014
+ * @COPYRIGHT	CHRODA 2018
  * @PACKAGE		CHRODA LolC
  * @SINCE     July 2013
  * @VERSION		0.1
@@ -16,7 +16,7 @@ Location            :	Porto Alegre, RS, Brazil.
 
 /* SITE */
 
-Last update         : 2018/03/27.
+Last update         : 2018/05/03.
 Standards           : XHTML, CSS2, CSS3.
 Components          : jQuery.
-Softwares           : Atom.
+Softwares           : Atom, VSCode.
