@@ -22,10 +22,12 @@ $_SESSION['user']['beta'] = false;
 require_once __CONTROLLERS_DIR__.'Mobile_Detect.php';
 $detect = new Mobile_Detect;
 $_SESSION['user']['platform']='desktop';
-if($detect->isTablet())
-$_SESSION['user']['platform']='tablet';
-if($detect->isMobile())
-$_SESSION['user']['platform']='mobile';
+if($detect->isTablet()){
+  $_SESSION['user']['platform']='tablet';
+}
+if($detect->isMobile()){
+  $_SESSION['user']['platform']='mobile';
+}
 
 /**
 * Starting SEO.
@@ -109,9 +111,7 @@ define('__TITLE_SEP__', ' &bull; ');
 define('__DESCR_SEP__', ' &mdash; ');
 $seo_title='';
 switch (rewrite(1)){
-  case '':
-  case 'index':
-  case 'home':
+  case '': case 'index': case 'home':
   $seo_title = 'Início' ;
   break;
   case 'user':
