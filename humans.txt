@@ -16,7 +16,7 @@ Location            :	Porto Alegre, RS, Brazil.
 
 /* SITE */
 
-Last update         : 2018/05/03.
+Last update         : 2018/05/09.
 Standards           : XHTML, CSS2, CSS3.
 Components          : jQuery.
 Softwares           : Atom, VSCode.
