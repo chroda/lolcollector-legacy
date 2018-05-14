@@ -1,13 +1,4 @@
 <?php
-/**
-* @AUTHOR - Christian Marcell de Oliveira (chroda) <chroda@chroda.com.br>
-* @COPYRIGHT - Dev n' Quest 2014
-* @PACKAGE - DnQ LolC
-* @SINCE - July 2013
-* @VERSION - 0.1
-*
-* Setup you project in 'Production' and 'Development' enviroments.
-*/
 define( '__APP_PACKAGE__','CHRODA');
 define( '__APP_TITLE__','LoL Collector');
 define( '__APP_VERSION__','0.1');
