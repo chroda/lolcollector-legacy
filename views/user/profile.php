@@ -1,7 +1,7 @@
 <?php
 
 set_time_limit(100);
-$version = '8.6.1';
+$version = '8.9.1';
 $portraitUrl = 'http://ddragon.leagueoflegends.com/cdn/'.$version.'/img/champion/championKey.png';
 $skinloadingUrl = 'http://ddragon.leagueoflegends.com/cdn/img/champion/loading/championKey_0.jpg';
 
@@ -105,11 +105,11 @@ if(rewrite(3)==''){
           <?php foreach($champion->skins as $skin):
             if($skin->num === 0){ continue; }
             $skin_key = $champion->key.'_'.$skin->num;
-            // STILL NOT READY
-            if($skin_key === 'Alistar_19'){continue;}
-            if($skin_key === 'Galio_6'){continue;}
-            if($skin_key === 'MissFortune_16'){continue;}
-            if($skin_key === 'Sivir_10'){continue;}
+            // // STILL NOT READY
+            // if($skin_key === 'Alistar_19'){continue;}
+            // if($skin_key === 'Galio_6'){continue;}
+            // if($skin_key === 'MissFortune_16'){continue;}
+            // if($skin_key === 'Sivir_10'){continue;}
 
             $imageUrl = str_replace('championKey_0',$skin_key,$skinloadingUrl);
             // $imageUrl = 'http://ddragon.leagueoflegends.com/cdn/img/champion/loading/MissFortune_15.jpg';
