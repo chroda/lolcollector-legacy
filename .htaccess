@@ -1,8 +1,19 @@
+
 <IfModule mod_rewrite.c>
+
   RewriteEngine On
-  RewriteBase /
-  RewriteRule ^index\.php$ - [L]
+
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . /index.php [L]
+  RewriteCond %{REQUEST_FILENAME} !-l
+  RewriteRule . index.php [L]
+
+  Options +FollowSymLinks
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} (.*)/([^/]+)(\?.*)?$
+  RewriteCond %1/%2.php -f
+  RewriteCond %{REQUEST_URI} (.*)/([^/]+)(\?.*)?$
+  RewriteRule .* %1/%2.php [QSA]
+
 </IfModule>
