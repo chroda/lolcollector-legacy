@@ -44,9 +44,7 @@ ini_set('session.cookie_lifetime',__SESSION_TIMEOUT__);
 ini_set('session.use_trans_sid',true);
 
 switch(__DNS__):
-	/**
-	* Production.
-	*/
+  // Production.
 	case  'lolcollector.com':
 	case 'www.lolcollector.com':
 	case  'lolcollector.com.br':
@@ -59,10 +57,7 @@ switch(__DNS__):
 	define( '__ENV__', 'prod' );
 	define( '__PATH__', '/legacy/' );
 	break;
-
-	/**
-	* Development.
-	*/
+	// Staged Heroku.
 	case 'lolcollector-legacy.herokuapp.com':
 	define('MYSQL_HOST','');
 	define('MYSQL_USER','');
@@ -71,10 +66,7 @@ switch(__DNS__):
 	define( '__ENV__', 'dev' );
 	define( '__PATH__', '/' );
 	break;
-
-	/**
-	* Development.
-	*/
+  // Development.
 	case 'localhost':default:
 	define('MYSQL_HOST','localhost');
 	define('MYSQL_USER','root');
@@ -85,7 +77,6 @@ switch(__DNS__):
 	// define( '__PATH__', '/.chroda/lolcollector-legacy/' );
 	break;
 endswitch;
-
 define('CDN_DIR',__PATH__ .'cdn/');
 define('DATA_DIR',__PATH__ .'data/');
 define('PKG_DIR','http://'.__IP__.'/pkg/');
@@ -109,5 +100,4 @@ foreach ($championsJson->data as $id => $dbChampions){
 	$db->champions[$dbChampions->name] = $dbChampions;
 }
 ksort($db->champions);
-
 session_start();
