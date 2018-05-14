@@ -90,8 +90,8 @@ switch(__DNS__):
 	define('MYSQL_PASS','');
 	define('MYSQL_NAME','lolcollector');
 	define( '__ENV__', 'dev' );
-	// define( '__PATH__', '/lolcollector-legacy/' );
-	define( '__PATH__', '/.chroda/lolcollector-legacy/' );
+	define( '__PATH__', '/lolcollector-legacy/' );
+	// define( '__PATH__', '/.chroda/lolcollector-legacy/' );
 	break;
 endswitch;
 
