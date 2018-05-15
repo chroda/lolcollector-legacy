@@ -1,8 +1,7 @@
 <?php
 
 set_time_limit(100);
-$version = '8.9.1';
-$portraitUrl = 'http://ddragon.leagueoflegends.com/cdn/'.$version.'/img/champion/championKey.png';
+$portraitUrl = 'http://ddragon.leagueoflegends.com/cdn/'.__APP_RIOTAPI_VERSION__.'/img/champion/championKey.png';
 $skinloadingUrl = 'http://ddragon.leagueoflegends.com/cdn/img/champion/loading/championKey_0.jpg';
 
 foreach($db->users as $profileId => $profileUser) {
