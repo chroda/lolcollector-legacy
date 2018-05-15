@@ -8,6 +8,9 @@ $_response = [];
 // Initializer.
 require_once __ROOT__.'init.php';
 
+
+pr(RIOT_GAME_VERSION);die;
+
 // Verifying the existence of the page.
 if(rewrite(1) == 'user'):
 	// Renders the user page.

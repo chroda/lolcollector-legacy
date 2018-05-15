@@ -5,6 +5,7 @@ define( '__APP_VERSION__','0.1');
 define( '__APP_EMAIL__','chroda@chroda.com.br');
 // define( '__APP_ADSENCE__','ca-pub-9598578551181463');
 define( '__APP_RIOTAPI_KEY__',trim(file_get_contents('https://raw.githubusercontent.com/chroda/lolcollector/master/apikey.txt')));
+define( '__APP_RIOTAPI_KEY__',trim(file_get_contents('https://raw.githubusercontent.com/chroda/lolcollector/master/gameversion.txt')));
 define( '__DEBUG__', true);
 define( '__DNS__', $_SERVER['SERVER_NAME']);
 define( '__IP__', @$_SERVER['SERVER_ADDR']);
@@ -24,6 +25,9 @@ define( '__VIEW_PATH__',__ROOT__. 'views/');
 define( '__VIEW_CPT_PATH__',__VIEW_PATH__. 'components/');
 define( '__VIEW_USER_PATH__',__VIEW_PATH__. 'user/');
 define( '__VIEW_ADM_PATH__',__VIEW_PATH__. 'admin/');
+
+const RIOT_GAME_VERSION = '8.9.1';
+
 
 header( 'Accept-Charset:utf-8,ISO-8859-1;q=0.7,*;q=0.7"',true);
 header( 'Content-Type: text/html; charset=UTF-8');
@@ -83,6 +87,8 @@ define('PKG_DIR','http://'.__IP__.'/pkg/');
 
 $usersJson = json_decode(file_get_contents('db_users.json'));
 $championsJson = json_decode(file_get_contents('db_champions.json'));
+
+// pr($championsJson);die;
 
 $db = new StdClass;
 $db->users = [];
